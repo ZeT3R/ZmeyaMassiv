@@ -8,16 +8,8 @@ struct SnakePos {
 	int SnakeX=0;
 	int SnakeY=0;
 };
-struct Movement {
-	int UP;
-	int DOWN;
-	int LEFT;
-	int RIGHT;
-};
-Movement Move;
 SnakePos Snake;
 int MoveUoD() {
-	bool UoD;
 	char UserUoD;
 	cin >> UserUoD;
 	if (UserUoD == '8') {
@@ -61,6 +53,34 @@ void DrawSnakeX(char (&Field)[Field_x][Field_y], int counter, int &SnakeX,int &S
 
 }
 
+bool checking(char(&Field)[Field_x][Field_y]) {
+	for (int i = 0; i < Field_x; i++) {
+		for (int j = 0; j < Field_y; j++) {
+			if (Snake.SnakeX == 0) {
+				Field[i][j] = '#';
+				Snake.SnakeX = Field_x - 2;
+				return(true);
+			}
+			else if (Snake.SnakeX == (Field_x - 1)) {
+				Field[i][j] = '#';
+				Snake.SnakeX = 1;
+				return(true);
+			}
+			else if (Snake.SnakeY == 0) {
+				Field[i][j] = '#';
+				Snake.SnakeY = Field_y - 2;
+					return(true);
+			}
+			else if (Snake.SnakeY == Field_y - 1) {
+				Field[i][j]='#';
+				Snake.SnakeY = 1;
+			}
+			else {
+				return(false);
+			}
+		}
+	}
+}
 
 void DrawField(char(&Field)[Field_x][Field_y]) {
 	int counter = 0;
@@ -80,6 +100,10 @@ void DrawField(char(&Field)[Field_x][Field_y]) {
 				if (i == Snake.SnakeX && j == Snake.SnakeY) {
 					Field[i][j] = 'S';
 				}
+				if (checking(Field) == true) {
+					Field[Snake.SnakeX][Snake.SnakeY] = 'S';
+				}
+
 			}
 		}
 		for (int i = 0; i < Field_x; i++) {

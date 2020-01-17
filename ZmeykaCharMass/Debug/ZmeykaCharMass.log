@@ -1,3 +1,3 @@
 ﻿  ZmeykaCharMass.cpp
-C:\Users\yaros\source\repos\ZmeykaCharMass\ZmeykaCharMass\ZmeykaCharMass.cpp(20,7): warning C4101: UoD: неиспользованная локальная переменная
+C:\Users\yaros\source\repos\ZmeykaCharMass\ZmeykaCharMass\ZmeykaCharMass.cpp(83): warning C4715: checking: значение возвращается не при всех путях выполнения
   ZmeykaCharMass.vcxproj -> C:\Users\yaros\source\repos\ZmeykaCharMass\Debug\ZmeykaCharMass.exe
